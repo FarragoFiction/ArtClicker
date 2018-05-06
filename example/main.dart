@@ -5,6 +5,7 @@ import "dart:async";
 Element container;
 
 DivElement div;
+ArtCanvas artCanvas;
 main() {
     div = querySelector("#container");
     start();
@@ -19,6 +20,14 @@ void clearDiv() {
 
 Future<Null> start() async{
     await Loader.preloadManifest();
+    ImageElement image = await Loader.getResource("images/1.png");
+    CanvasElement modelCanvas = new CanvasElement(width: image.width, height: image.height);
+    modelCanvas.context2D.drawImage(modelCanvas, 0, 0);
+    artCanvas = new ArtCanvas(modelCanvas);
     clearDiv();
 }
 
+Future<Null> tick() async {
+    artCanvas.drawBrushStroke();
+    new Timer(new Duration(milliseconds: 1000), () => tick());
+}
