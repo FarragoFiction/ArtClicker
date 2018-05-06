@@ -23,7 +23,7 @@ Future<Null> start() async{
     ImageElement image = await Loader.getResource("images/1.png");
     CanvasElement modelCanvas = new CanvasElement(width: image.width, height: image.height);
     modelCanvas.context2D.drawImage(modelCanvas, 0, 0);
-    artCanvas = new ArtCanvas(modelCanvas);
+    artCanvas = new ArtCanvas(div,modelCanvas);
     clearDiv();
 }
 

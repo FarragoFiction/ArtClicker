@@ -15,9 +15,9 @@ class ArtCanvas {
     ShapeFunction shapeFunction;
 
     //the canvas could be a png, a doll, or BOTH
-    ArtCanvas(CanvasElement this.modelCanvas, {PositionFunction this.positionFunction:null, ShapeFunction this.shapeFunction:null}) {
+    ArtCanvas(Element container, CanvasElement this.modelCanvas, {PositionFunction this.positionFunction:null, ShapeFunction this.shapeFunction:null}) {
         canvas = new CanvasElement(width:modelCanvas.width, height:modelCanvas.height);
-
+        container.append(canvas);
         if(positionFunction == null) positionFunction = new RandomPosition(canvas.width, canvas.height);
         if(shapeFunction == null) shapeFunction = new RectangleShape(10,10);
 
