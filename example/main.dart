@@ -24,7 +24,7 @@ Future<Null> start() async{
     CanvasElement modelCanvas = new CanvasElement(width: image.width, height: image.height);
     modelCanvas.context2D.drawImage(modelCanvas, 0, 0);
     artCanvas = new ArtCanvas(div,modelCanvas);
-    clearDiv();
+    tick();
 }
 
 Future<Null> tick() async {
