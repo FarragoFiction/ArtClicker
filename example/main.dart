@@ -21,8 +21,9 @@ void clearDiv() {
 Future<Null> start() async{
     await Loader.preloadManifest();
     ImageElement image = await Loader.getResource("images/1.png");
+    div.append(image);
     CanvasElement modelCanvas = new CanvasElement(width: image.width, height: image.height);
-    modelCanvas.context2D.drawImage(modelCanvas, 0, 0);
+    modelCanvas.context2D.drawImage(image, 0, 0);
     artCanvas = new ArtCanvas(div,modelCanvas);
     tick();
 }

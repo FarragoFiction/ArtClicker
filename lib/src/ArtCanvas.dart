@@ -43,7 +43,10 @@ class ArtCanvas {
     }
 
     Colour getImageColorAtPosition(int x, int y) {
+
         int i = xyToIndex(source.width, x, y);
+        print("x is $x and y is $y and i is $i and data is ${source.data.length}");
+
         int red = source.data[i];
         int green = source.data[i+1];
         int blue = source.data[i+2];
@@ -52,7 +55,6 @@ class ArtCanvas {
     }
 
     Future<Null> drawBrushStroke() {
-        print("draw brush");
         positionFunction.updatePosition();
         Colour color =getImageColorAtPosition(positionFunction.x, positionFunction.y);
         shapeFunction.draw(buffer, color, positionFunction.x, positionFunction.y);

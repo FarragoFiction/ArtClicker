@@ -7,7 +7,7 @@ class RandomPosition extends PositionFunction {
 
   @override
   void updatePosition() {
-    x = rand.nextIntRange(0, maxWidth);
-    y = rand.nextIntRange(0, maxHeight);
+    x = rand.nextIntRange(0, maxWidth-1);
+    y = rand.nextIntRange(0, maxHeight-1);
   }
 }
