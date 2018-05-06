@@ -29,5 +29,5 @@ Future<Null> start() async{
 
 Future<Null> tick() async {
     artCanvas.drawBrushStroke();
-    new Timer(new Duration(milliseconds: 1000), () => tick());
+    new Timer(new Duration(milliseconds: 10), () => tick());
 }
